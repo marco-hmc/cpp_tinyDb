@@ -4,8 +4,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(CTest)
-include(${CMAKE_SOURCE_DIR}/cmake/linkDll.cmake)
 enable_testing()
+
+include(${CMAKE_SOURCE_DIR}/cmake/linkDll.cmake)
 
 add_subdirectory(app)
 

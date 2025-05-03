@@ -15,7 +15,7 @@ function(ADD_LIB_MODULE target_name)
             target_include_directories(${target_name} PUBLIC
                 ${CMAKE_SOURCE_DIR}/lib/${lib_name}/include
             )
-            target_link_libraries(${target_name} ${lib_name})
+            target_link_libraries(${target_name} PUBLIC ${lib_name})
         endif()
     endforeach()
 endfunction()

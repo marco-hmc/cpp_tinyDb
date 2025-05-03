@@ -5,11 +5,12 @@ project(${PARENT_PROJECT_NAME}_test)
 include(CTest)
 enable_testing()
 
-add_executable(${PARENT_PROJECT_NAME}_test ${PARENT_PROJECT_NAME}_test.cpp)
+file(GLOB TEST_SOURCES "*.cpp")
+add_executable(${PARENT_PROJECT_NAME}_test ${TEST_SOURCES})
 
-include_directories(${GTEST_INCLUDE_DIRS})
+find_package(GTest REQUIRED) # 使用 find_package 引入 GTest
 
-target_link_libraries(${PARENT_PROJECT_NAME}_test ${PARENT_PROJECT_NAME} CONAN_PKG::gtest)
+target_link_libraries(${PARENT_PROJECT_NAME}_test ${PARENT_PROJECT_NAME} GTest::GTest GTest::Main)
 
 gtest_discover_tests(${PARENT_PROJECT_NAME}_test)
 
